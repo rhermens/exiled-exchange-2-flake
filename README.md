@@ -7,6 +7,8 @@ Nix packaging for [Exiled Exchange 2](https://github.com/Kvan7/Exiled-Exchange-2
 - Nix with flakes enabled
 - An `x86_64-linux` system
 
+The package forces Electron to use XWayland. This prevents the overlay from taking keyboard focus away from PoE 2 under Wayland compositors such as Hyprland.
+
 ## NixOS flake configuration
 
 Add this repository as an input:

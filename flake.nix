@@ -30,7 +30,13 @@
           default = pkgs.appimageTools.wrapType2 {
             inherit pname version src;
 
+            nativeBuildInputs = [ pkgs.makeWrapper ];
+
             extraInstallCommands = ''
+              wrapProgram $out/bin/exiled-exchange-2 \
+                --set XDG_SESSION_TYPE x11 \
+                --add-flags "--ozone-platform=x11"
+
               install -m 444 -D \
                 ${appimageContents}/exiled-exchange-2.desktop \
                 $out/share/applications/exiled-exchange-2.desktop
